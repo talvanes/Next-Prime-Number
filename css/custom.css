@@ -1,0 +1,58 @@
+/* Space out content a bit */
+body {
+  padding-top: 30px;
+  padding-bottom: 30px;
+	background: #f5f5f5;
+}
+
+/* Customize container */
+.container {
+	background: #fff;
+}
+.container h1 {
+	text-transform: capitalize;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Custom format for block-level elements */
+.custom-group {
+	background: #f5f5f5;
+	border: 1px solid #333;
+	border-radius: 4px;
+	padding: 5px 10px;
+	margin-bottom: 15px;
+}
+
+/* Custom style for the form */
+form {margin-top: 15px;}
+
+/* Responsive styling */
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px){
+	h1 {
+		font-size: 30px;
+	}
+	button {
+		margin-top: 15px;
+	}
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 991px) {
+	button {
+		margin-top: 15px;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
