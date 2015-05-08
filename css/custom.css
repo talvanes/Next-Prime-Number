@@ -31,6 +31,8 @@ body {
 	margin-bottom: 15px;
 }
 
+#output { min-height: 60px; }
+
 /* Custom style for the form */
 form {margin-top: 15px;}
 
