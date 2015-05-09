@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	// State:
+	// State is OK by default
 	var state = true;
 	// button states: OK and Stop
 	var states = {
@@ -12,28 +12,45 @@ $(document).ready(function(){
 			"icon": 'glyphicon-remove'
 		}
 	};
+	// global interval variable to measure execution of routine getNextPrimeNumber()
+	var routine;
+
 
 	/* Some event handlers */
 	// Start getting next prime number (OK button)
 	$("#action").on("click", function(){
+		// First of all, empty output
+		$('#output').empty();
+
 		// Check button state (true for OK, false for Stop)
 		if(state){
 			// Change action to Stop
 			state = false;
 			$(this).attr('aria-label', "Stop");
-			$('button.btn').removeClass('btn-success').addClass('btn-danger');
-			$('span.glyphicon').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+			$('button.btn').removeClass(states['OK']["button"]).addClass(states['Stop']["button"]);
+			$('span.glyphicon').removeClass(states['OK']["icon"]).addClass(states['Stop']["icon"]);
 			$('span.label').text('Stop');
-			// -- setInterval action
+
+			// -- setInterval action --
+			// The value of the number
+			var number = parseInt($('#number').val());
+			routine = setInterval(
+				function(){
+					// Appending number to the output
+					var output = $('#output');
+					output.append("<span class='number'>" + getNextPrimeNumber(number++) + "</span>");
+				}, 1000);
 
 		} else {
 			// Change back to OK
 			state = true;
 			$(this).attr('aria-label', "OK");
-			$('button.btn').removeClass('btn-danger').addClass('btn-success');
-			$('span.glyphicon').removeClass('glyphicon-remove').addClass('glyphicon-ok');
+			$('button.btn').removeClass(states['Stop']["button"]).addClass(states['OK']["button"]);
+			$('span.glyphicon').removeClass(states['Stop']["icon"]).addClass(states['OK']["icon"]);
 			$('span.label').text('OK');
-			// -- clearInterval action
+
+			// -- clearInterval action --
+			clearInterval(routine);
 
 		}
 	});

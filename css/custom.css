@@ -31,7 +31,16 @@ body {
 	margin-bottom: 15px;
 }
 
-#output { min-height: 60px; }
+#output {
+	min-height: 60px;
+}
+
+/* For numbers generated */
+span.number {
+	padding-left: 0;
+	padding-right: 4px;
+	display: inline-flex;
+}
 
 /* Custom style for the form */
 form {margin-top: 15px;}
